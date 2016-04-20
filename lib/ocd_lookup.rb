@@ -1,8 +1,14 @@
 require 'ocd_lookup/version'
+require 'csv'
 
 module OcdLookup
   class DivisionId
     attr_reader :mapping
+
+    def self.parse(csv_data)
+      rows = CSV.parse(csv_data, headers: true, header_converters: :symbol)
+      new(rows.map(&:to_hash))
+    end
 
     def initialize(rows)
       @mapping = Hash[rows.map { |r| [r[:name], r[:id]] }]

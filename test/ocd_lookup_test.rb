@@ -1,18 +1,13 @@
 require 'test_helper'
 require 'pry'
-require 'csv'
 
 class OcdLookupTest < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::OcdLookup::VERSION
   end
 
-  def country_au_mapping
-    CSV.parse(File.read('test/fixtures/country-au.csv'), headers: true, header_converters: :symbol).map(&:to_hash)
-  end
-
   def subject
-    @lookup ||= OcdLookup::DivisionId.new(country_au_mapping)
+    @lookup ||= OcdLookup::DivisionId.parse(File.read('test/fixtures/country-au.csv'))
   end
 
   def test_looking_up_country
