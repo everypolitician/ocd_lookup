@@ -1,4 +1,4 @@
-# OcdLookup
+# OcdLookup [![Build Status](https://travis-ci.org/everypolitician/ocd_lookup.svg?branch=master)](https://travis-ci.org/everypolitician/ocd_lookup)
 
 Convert a place name to an OCD ID.
 
