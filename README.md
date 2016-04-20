@@ -16,8 +16,11 @@ And then execute:
 
 ## Usage
 
+Pass a CSV string with data formatted following the [OCD Division IDs](http://opencivicdata.readthedocs.org/en/latest/proposals/0002.html) standard. Some examples can be found in the [opencivicdata/ocd-division-ids](https://github.com/opencivicdata/ocd-division-ids) repository.
+
 ```ruby
-lookup = OcdLookup::DivisionId.new([{ id: 'ocd-division/country:au/state:nsw', name: 'New South Wales' }])
+csv_data = "id,name\nocd-division/country:au/state:nsw,New South Wales"
+lookup = OcdLookup::DivisionId.parse(csv_data)
 lookup.find(state: 'New South Wales')
 # => "ocd-division/country:au/state:nsw"
 ```
