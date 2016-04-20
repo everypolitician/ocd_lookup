@@ -1,28 +1,26 @@
 # OcdLookup
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ocd_lookup`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Convert a place name to an OCD ID.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ocd_lookup'
+gem 'ocd_lookup', git: 'https://github.com/everypolitician/ocd_lookup', branch: 'master'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install ocd_lookup
-
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+lookup = OcdLookup::DivisionId.new([{ id: 'ocd-division/country:au/state:nsw', name: 'New South Wales' }])
+lookup.find(state: 'New South Wales')
+# => "ocd-division/country:au/state:nsw"
+```
 
 ## Development
 
@@ -32,10 +30,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ocd_lookup.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/everypolitician/ocd_lookup.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
